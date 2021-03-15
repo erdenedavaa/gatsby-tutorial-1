@@ -1,12 +1,12 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage, getImage, getSrc, StaticImage } from 'gatsby-plugin-image'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import img from '../images/image-4.jpeg'
 // import img2 from '../images/image-3.jpeg'
 
 const getImages = graphql`
   {
-    fixed: file(relativePath: { eq: "image-4.jpeg" }) {
+    fixed: file(relativePath: { eq: "image-3.jpeg" }) {
       childImageSharp {
         gatsbyImageData(
           layout: FIXED
@@ -20,17 +20,13 @@ const getImages = graphql`
     }
     fluid: file(relativePath: { eq: "image-4.jpeg" }) {
       childImageSharp {
-        gatsbyImageData(
-          layout: FULL_WIDTH
-          placeholder: BLURRED
-          formats: [AUTO, WEBP, AVIF]
-        )
+        gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
       }
     }
     constrained: file(relativePath: { eq: "image-3.jpeg" }) {
       childImageSharp {
         gatsbyImageData(
-          layout: CONSTRAINED
+          layout: FIXED
           width: 50
           placeholder: BLURRED
           formats: [AUTO, WEBP, AVIF]
@@ -66,7 +62,7 @@ const Images = () => {
         <h2>content</h2>
         <div className="small_disabled">
           <GatsbyImage alt="daraa" image={constrained} />
-        <h2>content</h2>
+          <h2>content</h2>
         </div>
       </article>
     </section>

@@ -43,12 +43,7 @@ export const query = graphql`
       title
       price
       image {
-        gatsbyImageData(
-          layout: FIXED
-          width: 300
-          placeholder: BLURRED
-          formats: [AUTO, WEBP]
-        )
+        gatsbyImageData(layout: CONSTRAINED, width: 400, formats: [AUTO, WEBP])
       }
       info {
         info
